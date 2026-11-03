@@ -1,0 +1,15 @@
+{
+  "Version": "1",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["nas:ClientMount"],
+      "Resource": ["acs:nas:YOUR_REGION:YOUR_ACCOUNT_ID:filesystem/examplefs123"],
+      "Condition": {
+        "StringEquals": {
+          "nas:AccessPointArn": "acs:nas:YOUR_REGION:YOUR_ACCOUNT_ID:accesspoint/ap-example123"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "name": "agentcore-chat",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "postinstall": "node scripts/patch-renderer.mjs && node scripts/prepare-file-viewer.mjs",
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "AGENTCORE_ARTIFACT_ROOT=/mnt/oss/data/test-artifacts node --import tsx --test tests/*.test.ts",
+    "test:live": "node --import tsx scripts/smoke-agent.ts",
+    "test:e2e": "playwright test",
+    "auth:init": "node scripts/setup-auth.mjs",
+    "identity:init": "node scripts/setup-identity.mjs"
+  },
+  "dependencies": {
+    "ali-oss": "6.23.0",
+    "better-auth": "1.7.5",
+    "better-sqlite3": "12.6.2",
+    "docx-preview": "0.4.0",
+    "esbuild": "0.28.2",
+    "jose": "6.1.3",
+    "jszip": "3.10.1",
+    "katex": "0.16.47",
+    "lucide-react": "1.46.0",
+    "next": "16.3.5",
+    "pptx-preview": "1.0.7",
+    "react": "19.3.0",
+    "react-ai-renderer": "0.1.27",
+    "react-dom": "19.3.0",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/ali-oss": "6.23.3",
+    "@types/better-sqlite3": "9.6.0",
+    "@types/node": "20.19.43",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.3.5",
+    "tsx": "4.23.13",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "overrides": {
+    "prismjs": "1.30.0",
+    "pptx-preview": {
+      "echarts": "6.1.0",
+      "uuid": "11.1.1"
+    }
+  }
+}
